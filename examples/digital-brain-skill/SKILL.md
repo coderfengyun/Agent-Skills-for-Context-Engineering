@@ -22,8 +22,9 @@ Activate this skill when the user:
 - Asks for weekly reviews or goal tracking
 - Needs to save or retrieve bookmarked resources
 - Wants to organize research or learning materials
+- Wants to create a new module or extend the Digital Brain system
 
-**Trigger phrases**: "write a post", "my voice", "content ideas", "who is [name]", "prepare for meeting", "weekly review", "save this", "my goals"
+**Trigger phrases**: "write a post", "my voice", "content ideas", "who is [name]", "prepare for meeting", "weekly review", "save this", "my goals", "create a module", "new module"
 
 ## Core Concepts
 
@@ -59,12 +60,13 @@ JSONL files are **append-only**. Never delete entries:
 
 ```
 digital-brain/
-├── identity/     → Voice, brand, values (READ FIRST for content)
-├── content/      → Ideas, drafts, posts, calendar
-├── knowledge/    → Bookmarks, research, learning
-├── network/      → Contacts, interactions, intros
-├── operations/   → Todos, goals, meetings, metrics
-└── agents/       → Automation scripts
+├── identity/       → Voice, brand, values (READ FIRST for content)
+├── content/        → Ideas, drafts, posts, calendar
+├── knowledge/      → Bookmarks, research, learning
+├── network/        → Contacts, interactions, intros
+├── operations/     → Todos, goals, meetings, metrics
+├── agents/         → Automation scripts
+└── module-toolkit/ → Tools for creating new modules
 ```
 
 ### Identity Module (Critical for Content)
@@ -135,7 +137,30 @@ Productivity system with priority levels:
 5. Plan next week in content/calendar.md
 ```
 
+### Creating New Modules
+
+```
+1. Read module-toolkit/MODULE_CREATION_GUIDE.md
+2. Follow the 6-phase module creation process
+3. Use module-toolkit/check_module_integration.py to verify
+4. Ensure all system files are properly updated
+```
+
 ## Examples
+
+### Example: Creating a New Module
+
+**Input**: "I want to create a projects module to track my side projects"
+
+**Process**:
+1. Read `module-toolkit/MODULE_CREATION_GUIDE.md`
+2. Guide user through Phase 1: Requirements Analysis
+3. Create core files (projects.jsonl, PROJECTS.md)
+4. Update all system files (SKILL.md, AGENT.md, README.md, etc.)
+5. Run `python module-toolkit/check_module_integration.py projects project`
+6. Verify 100% integration completion
+
+**Output**: Fully integrated new module with documentation, scripts, and system-wide integration.
 
 ### Example: Writing an X Post
 

@@ -69,6 +69,11 @@ digital-brain/
 │       ├── stale_contacts.py
 │       └── idea_to_draft.py
 │
+├── module-toolkit/          # Module creation tools
+│   ├── MODULE-TOOLKIT.md           # Toolkit overview
+│   ├── MODULE_CREATION_GUIDE.md    # 6-phase creation guide
+│   └── check_module_integration.py # Integration checker
+│
 ├── references/              # Detailed documentation
 │   └── file-formats.md
 │
@@ -118,6 +123,7 @@ cd ~/digital-brain
 3. **Add contacts** - Populate `network/contacts.jsonl` with key relationships
 4. **Set goals** - Define OKRs in `operations/goals.yaml`
 5. **Start creating** - Ask AI to "write a post" and watch it use your voice
+6. **Extend the system** - Use `module-toolkit/` to create custom modules
 
 ## File Format Conventions
 
@@ -163,6 +169,19 @@ Agent Process:
 4. Presents summary with action items
 ```
 
+### Creating a New Module
+```
+User: "I want to create a projects module"
+
+Agent Process:
+1. Reads module-toolkit/MODULE_CREATION_GUIDE.md
+2. Guides through 6-phase creation process
+3. Creates core files (projects.jsonl, PROJECTS.md, scripts)
+4. Updates all system integration files
+5. Runs check_module_integration.py to verify
+6. Confirms 100% integration completion
+```
+
 ## Automation Scripts
 
 | Script | Purpose | Run Frequency |
@@ -171,6 +190,7 @@ Agent Process:
 | `content_ideas.py` | Suggest content from knowledge | On-demand |
 | `stale_contacts.py` | Find neglected relationships | Weekly |
 | `idea_to_draft.py` | Expand idea to draft scaffold | On-demand |
+| `check_module_integration.py` | Verify module integration | When creating modules |
 
 ```bash
 # Run directly
@@ -178,6 +198,9 @@ python agents/scripts/weekly_review.py
 
 # Or with arguments
 python agents/scripts/content_ideas.py --pillar ai_agents --count 5
+
+# Check module integration
+python module-toolkit/check_module_integration.py projects project
 ```
 
 ## Design Principles
